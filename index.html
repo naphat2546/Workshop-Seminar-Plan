@@ -245,21 +245,21 @@
 
     <script>
         // 1. ข้อมูลการตั้งค่า 10 จังหวัด (แยกซ้าย-ขวา เพื่อไม่ให้กล่องทับซ้อนกัน และตั้งตำแหน่งแกน Y ตายตัว)
-        // ใช้สีม่วง 10 โทนสี (RGB format)
+        // ใช้สีสันที่แตกต่างกัน 10 สี (RGB format)
         const targetProvinces = [
             // ด้านซ้าย (เครื่องบิน 3, รถตู้ 2)
-            { id: 'chiangmai', th: 'เชียงใหม่', match: ['Chiang Mai'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 80, rgb: '74, 20, 140' },      // #4A148C
-            { id: 'lamphun', th: 'ลำพูน', match: ['Lamphun'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 200, rgb: '106, 27, 154' },       // #6A1B9A
-            { id: 'suphanburi', th: 'สุพรรณบุรี', match: ['Suphan Buri', 'Suphanburi'], mode: 'รถตู้', icon: '🚐', align: 'left', y: 360, rgb: '123, 31, 162' }, // #7B1FA2
-            { id: 'kanchanaburi', th: 'กาญจนบุรี', match: ['Kanchanaburi'], mode: 'รถตู้', icon: '🚐', align: 'left', y: 480, rgb: '142, 36, 170' },   // #8E24AA
-            { id: 'nakhonsi', th: 'นครศรีธรรมราช', match: ['Nakhon Si Thammarat'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 720, rgb: '156, 39, 176' }, // #9C27B0
+            { id: 'chiangmai', th: 'เชียงใหม่', match: ['Chiang Mai'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 80, rgb: '239, 68, 68' },      // สีแดง
+            { id: 'lamphun', th: 'ลำพูน', match: ['Lamphun'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 200, rgb: '249, 115, 22' },       // สีส้ม
+            { id: 'suphanburi', th: 'สุพรรณบุรี', match: ['Suphan Buri', 'Suphanburi'], mode: 'รถตู้', icon: '🚐', align: 'left', y: 360, rgb: '234, 179, 8' }, // สีเหลืองทอง
+            { id: 'kanchanaburi', th: 'กาญจนบุรี', match: ['Kanchanaburi'], mode: 'รถตู้', icon: '🚐', align: 'left', y: 480, rgb: '34, 197, 94' },   // สีเขียว
+            { id: 'nakhonsi', th: 'นครศรีธรรมราช', match: ['Nakhon Si Thammarat'], mode: 'เครื่องบิน', icon: '✈️', align: 'left', y: 720, rgb: '6, 182, 212' }, // สีฟ้า
 
             // ด้านขวา (เครื่องบิน 3, รถตู้ 2)
-            { id: 'khonkaen', th: 'ขอนแก่น', match: ['Khon Kaen'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 200, rgb: '171, 71, 188' },      // #AB47BC
-            { id: 'ayutthaya', th: 'พระนครศรีอยุธยา', match: ['Phra Nakhon Si Ayutthaya', 'Ayutthaya'], mode: 'รถตู้', icon: '🚐', align: 'right', y: 340, rgb: '186, 104, 200' }, // #BA68C8
-            { id: 'chonburi', th: 'ชลบุรี', match: ['Chon Buri', 'Chonburi'], mode: 'รถตู้', icon: '🚐', align: 'right', y: 460, rgb: '206, 147, 216' },     // #CE93D8
-            { id: 'surin', th: 'สุรินทร์', match: ['Surin'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 600, rgb: '94, 53, 177' },         // #5E35B1
-            { id: 'songkhla', th: 'สงขลา', match: ['Songkhla'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 820, rgb: '49, 27, 146' }         // #311B92
+            { id: 'khonkaen', th: 'ขอนแก่น', match: ['Khon Kaen'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 200, rgb: '59, 130, 246' },      // สีน้ำเงิน
+            { id: 'ayutthaya', th: 'พระนครศรีอยุธยา', match: ['Phra Nakhon Si Ayutthaya', 'Ayutthaya'], mode: 'รถตู้', icon: '🚐', align: 'right', y: 340, rgb: '99, 102, 241' }, // สีคราม
+            { id: 'chonburi', th: 'ชลบุรี', match: ['Chon Buri', 'Chonburi'], mode: 'รถตู้', icon: '🚐', align: 'right', y: 460, rgb: '236, 72, 153' },     // สีชมพู
+            { id: 'surin', th: 'สุรินทร์', match: ['Surin'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 600, rgb: '168, 85, 247' },         // สีม่วง
+            { id: 'songkhla', th: 'สงขลา', match: ['Songkhla'], mode: 'เครื่องบิน', icon: '✈️', align: 'right', y: 820, rgb: '225, 29, 72' }         // สีแดงอมชมพู
         ];
 
         // 2. ตั้งค่า SVG Viewbox สำหรับแสดงผล
